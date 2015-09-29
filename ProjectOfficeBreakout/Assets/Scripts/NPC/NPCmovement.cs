@@ -4,6 +4,7 @@ using System.Collections;
 public class NPCmovement : MonoBehaviour {
 
 	Transform player;
+	public Transform rayorigin;
 	public float speed=1f;
 	Vector3 movement;
 	Rigidbody playerRigidbody;
@@ -21,25 +22,33 @@ public class NPCmovement : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		if(!stop)
 			move();//auto-move
+		Ray[] rays=new Ray[10];
+		for (int i=0; i<10; i++) {
+			rays[i].origin=rayorigin.position;
+			rays[i].direction=Quaternion.AngleAxis(12*(i-5),transform.up)*transform.forward;
+			Debug.DrawRay (rays[i].origin, rays[i].direction,Color.red);
 
-		Ray ray = new Ray(transform.position, transform.forward);
-		RaycastHit hitInfo = new RaycastHit();
-		Debug.DrawRay (transform.position, transform.forward,Color.red);
-		if (Physics.Raycast(ray,out hitInfo))
-		{
-				print(hitInfo.collider.gameObject.tag);
+			RaycastHit hitInfo = new RaycastHit();
+			
+			if (Physics.Raycast(rays[i],out hitInfo,50))
+			{
+				//print(hitInfo.collider.gameObject.tag);
 				if(hitInfo.collider.CompareTag("player"))//once detect player, start following
 				{
-					
 					startNav=true;
 				}
+			}
 		}
-		
-		if(startNav&&nav.enabled)
-			nav.SetDestination (player.position);
+
+
+
+		if (startNav && nav.enabled) {
+			print ("start naving");
+			nav.SetDestination(player.position);
+		}
 
 	}
 	void move()
@@ -57,17 +66,18 @@ public class NPCmovement : MonoBehaviour {
 		Quaternion newRotation=Quaternion.LookRotation(playerToMouse);
 		playerRigidbody.MoveRotation(newRotation);
 	}
-	
+
 	void OnCollisionEnter(Collision collision)
 	{
-		foreach (ContactPoint contact in collision.contacts) {
-			//print(contact.thisCollider.name + " hit " + contact.otherCollider.name+" at "+contact.normal);
+		foreach (ContactPoint contact in collision.contacts) 
+		{
+		
 			Debug.DrawRay(contact.point, contact.normal, Color.red,10,false);
 			if(!contact.otherCollider.CompareTag("floor"))
 			{
 				if(contact.otherCollider.gameObject.CompareTag("player"))
 				{
-					print("this is player");
+					print("this is player, stop");
 					stop=true;
 					anim.SetBool ("move", false);
 				}
@@ -86,4 +96,5 @@ public class NPCmovement : MonoBehaviour {
 			anim.SetBool ("move", true);
 		}
 	}
+
 }

@@ -374,6 +374,44 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 'MuscleClip ''m01@idle_00'' conversion warning: ''PelvisRoot/Hips/Spine/Spine1''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''m01@idle_00'' conversion warning: ''PelvisRoot/Hips/Spine/Spine1/Spine2/Spine3''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''m01@idle_00'' conversion warning: ''PelvisRoot/Hips/Spine/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftArmRoll''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''m01@idle_00'' conversion warning: ''PelvisRoot/Hips/Spine/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftArmRoll/LeftForeArm/LeftForeArmRoll''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''m01@idle_00'' conversion warning: ''PelvisRoot/Hips/Spine/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightArmRoll''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''m01@idle_00''conversion warning: ''PelvisRoot/Hips/Spine/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightArmRoll/RightForeArm''
+      has translation animation. It is not supported.
+
+
+      MuscleClip ''m01@idle_00'' conversion warning: ''PelvisRoot/Hips/Spine/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightArmRoll/RightForeArm/RightForeArmRoll''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+'
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
     animationCompression: 3
     animationRotationError: .5
     animationPositionError: .5
@@ -384,7 +422,7 @@ ModelImporter:
     - serializedVersion: 16
       name: idle_00
       takeName: Take 001
-      firstFrame: 0
+      firstFrame: 285
       lastFrame: 820
       wrapMode: 0
       orientationOffsetY: 0

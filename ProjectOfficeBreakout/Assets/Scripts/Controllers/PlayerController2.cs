@@ -5,7 +5,7 @@ using System.Collections;
 [RequireComponent(typeof (Animator))]
 [RequireComponent(typeof (CapsuleCollider))]
 [RequireComponent(typeof (Rigidbody))]
-public class PlayerController : MonoBehaviour
+public class PlayerController2 : MonoBehaviour
 {
 	[System.NonSerialized]					
 	public float lookWeight;					// the amount to transition when using head look

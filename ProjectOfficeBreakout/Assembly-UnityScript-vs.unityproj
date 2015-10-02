@@ -5,11 +5,11 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{24F2FECA-B279-1613-4F45-9F6D6B100980}</ProjectGuid>
+	<ProjectGuid>{418EB06E-F078-9594-C596-D49469925F74}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<AssemblyName>Assembly-UnityScript</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
 	<BaseDirectory>Assets</BaseDirectory>
@@ -46,17 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\CameraLogic\CameraController.cs" />
-     <Compile Include="Assets\Scripts\CameraLogic\CameraFollow.cs" />
-     <Compile Include="Assets\Scripts\CameraLogic\TPCamera.cs" />
-     <Compile Include="Assets\Scripts\Controllers\AnimTriggers.cs" />
-     <Compile Include="Assets\Scripts\Controllers\PlayerControlScript.cs" />
-     <Compile Include="Assets\Scripts\Controllers\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\Controllers\PlayerController2.cs" />
-     <Compile Include="Assets\Scripts\GameMechanics\PlayerWalkMechanics.cs" />
-     <Compile Include="Assets\Scripts\GameMechanics\WalkMechanics.cs" />
-     <Compile Include="Assets\Scripts\NPC\NPCmovement.cs" />
-     <Compile Include="Assets\Scripts\NPC\cam.cs" />
+     <Compile Include="Assets\Scripts\GameMechanics\CollisionDetector.js" />
      <None Include="Assets\character\TaichiCharacterPack\Shaders\toon_cutoff.shader" />
      <None Include="Assets\character\TaichiCharacterPack\Readme.txt" />
      <None Include="Assets\character\TaichiCharacterPack\Releasenote.txt" />

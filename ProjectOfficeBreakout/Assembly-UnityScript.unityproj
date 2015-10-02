@@ -39,6 +39,7 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
+<<<<<<< HEAD
 	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
@@ -62,6 +63,43 @@
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+=======
+	  <HintPath>D:/Program/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>D:/Program/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\BaseMale\Scripts\GUI\buttonAnimationPause.js" />
+     <Compile Include="Assets\BaseMale\Scripts\GUI\buttonClickFlash.js" />
+     <Compile Include="Assets\BaseMale\Scripts\GUI\buttonHoverSetText.js" />
+     <Compile Include="Assets\BaseMale\Scripts\GUI\buttonPicker.js" />
+     <Compile Include="Assets\BaseMale\Scripts\GUI\buttonPosition.js" />
+     <Compile Include="Assets\BaseMale\Scripts\GUI\buttonSetAnimation.js" />
+     <Compile Include="Assets\BaseMale\Scripts\GUI\buttonSetMaterial.js" />
+     <Compile Include="Assets\BaseMale\Scripts\GUI\buttonSize.js" />
+     <Compile Include="Assets\BaseMale\Scripts\GUI\buttonSwitchTexture.js" />
+     <Compile Include="Assets\BaseMale\Scripts\cameraViewObject.js" />
+     <Compile Include="Assets\BaseMale\Scripts\clearText.js" />
+     <Compile Include="Assets\BaseMale\Scripts\infoText.js" />
+     <Compile Include="Assets\BaseMale\Scripts\shadow.js" />
+     <None Include="Assets\Character\TaichiCharacterPack\Shaders\toon_cutoff.shader" />
+     <None Include="Assets\Character\TaichiCharacterPack\Readme.txt" />
+     <None Include="Assets\Character\TaichiCharacterPack\Releasenote.txt" />
+     <None Include="Assets\Character\TaichiCharacterPack\Shaders\toon_hair.shader" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>D:/Program/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>D:/Program/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>D:/Program/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+ <HintPath>D:/Program/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+>>>>>>> origin/master
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

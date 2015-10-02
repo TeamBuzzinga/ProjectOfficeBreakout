@@ -217,13 +217,13 @@ ModelImporter:
             inSlope: 0
             outSlope: 0
             tangentMode: 0
-          - time: .267250329
-            value: 1.16834724
+          - time: .194803774
+            value: .916354537
             inSlope: -1.64173591
             outSlope: -1.64173591
             tangentMode: 0
-          - time: .61770767
-            value: 1.08657551
+          - time: .602268219
+            value: .903647482
             inSlope: 1.2279588
             outSlope: 1.2279588
             tangentMode: 0
@@ -248,10 +248,15 @@ ModelImporter:
             inSlope: 0
             outSlope: 0
             tangentMode: 0
-          - time: .286223263
-            value: 1.78539991
+          - time: .241092622
+            value: 1.91668308
             inSlope: -.0366422012
             outSlope: -.0366422012
+            tangentMode: 0
+          - time: .439703166
+            value: 1.80698383
+            inSlope: -1.64151192
+            outSlope: -1.64151192
             tangentMode: 0
           - time: .541924119
             value: 1.20455909

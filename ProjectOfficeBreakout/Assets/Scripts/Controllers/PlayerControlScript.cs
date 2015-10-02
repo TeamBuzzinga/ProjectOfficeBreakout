@@ -15,10 +15,11 @@ public class PlayerControlScript : MonoBehaviour
 	public float animSpeed = 1.5f;				// a public setting for overall animator animation speed
 	public float lookSmoother = 3f;				// a smoothing setting for camera motion
 	public bool useCurves;						// a setting for teaching purposes to show use of curves
-	public bool looking = false;
 	//	public float ePos = 0f;
-	public float angle;
-	public float a2;
+	float angle;
+//	public float a2;
+
+	public float crouchSpeed = 0.8f;
 	
 	private Animator anim;							// a reference to the animator on the character
 	private AnimatorStateInfo currentBaseState;			// a reference to the current state of the animator, used for base layer
@@ -34,9 +35,9 @@ public class PlayerControlScript : MonoBehaviour
 	static int jumpDownState = Animator.StringToHash("Base Layer.JumpDown");				// and are used to check state for various actions to occur
 	static int cannotClimbState = Animator.StringToHash("Base Layer.CannotClimb");				// and are used to check state for various actions to occur
 
-	static int idle2CrouchState = Animator.StringToHash("BaseLayer.Idle2Crouch");
-	static int crouchState = Animator.StringToHash("BaseLayer.Crouch");
-	static int crouch2IdleState = Animator.StringToHash("BaseLayer.Crouch2Idle");
+	static int crouchState = Animator.StringToHash("Base Layer.Crouch");
+	static int crouchBackwardState = Animator.StringToHash("Base Layer.CrouchBackward");
+	static int crouchForwardState = Animator.StringToHash("Base Layer.CrouchForward");
 
 	static int useState = Animator.StringToHash("Base Layer.Use");		// within our FixedUpdate() function below
 	
@@ -166,7 +167,7 @@ public class PlayerControlScript : MonoBehaviour
 					//Check that player is facing object before climbing
 					obj = GameObject.FindGameObjectWithTag("UseTriggerObject");
 					angle = Vector3.Angle(transform.forward, obj.transform.position - transform.position) ;
-					a2 = angle;
+//					a2 = angle;
 					if (angle < 80)
 					{
 						anim.SetBool("Use",true);
@@ -193,7 +194,7 @@ public class PlayerControlScript : MonoBehaviour
 					//Check that player is facing object before climbing
 					obj = GameObject.FindGameObjectWithTag("UseTriggerObject");
 					angle = Vector3.Angle(transform.forward, obj.transform.position - transform.position) ;
-					a2 = angle;
+//					a2 = angle;
 					if (angle < 80)
 					{
 						anim.SetBool("Use",true);
@@ -209,23 +210,30 @@ public class PlayerControlScript : MonoBehaviour
 			}
 
 		}
-		else if (currentBaseState.nameHash == idle2CrouchState || currentBaseState.nameHash == crouch2IdleState )
-		{
 
-			// ..set the collider height to a float curve in the clip called ColliderHeight
-			col.height = anim.GetFloat("ColliderHeight");
-			col.center = new Vector3(0, anim.GetFloat("ColliderY"), 0);
-
-		}
 		else if(currentBaseState.nameHash == crouchState)
 		{
-			col.height = anim.GetFloat("ColliderHeight");
-			col.center = new Vector3(0, anim.GetFloat("ColliderY"), 0);
 			if(Input.GetKey(KeyCode.C))
 			{
 				anim.SetBool("Crouch",false);
 			}
 		}
+		else if (currentBaseState.nameHash == crouchBackwardState)
+		{
+			transform.Translate(Vector3.back * crouchSpeed * Time.deltaTime);
+			float LRValue = Input.GetAxis("Horizontal");
+
+			transform.Rotate(0, LRValue*60*Time.deltaTime,0);
+
+		}
+		else if (currentBaseState.nameHash == crouchForwardState)
+		{
+			transform.Translate(Vector3.forward * crouchSpeed * Time.deltaTime);
+			float LRValue = Input.GetAxis("Horizontal");
+//			if (LRValue<-0.1)
+			transform.Rotate(0, LRValue*60*Time.deltaTime,0);
+		}
+
 		else if(currentBaseState.nameHash == useState)
 		{
 			if(!anim.IsInTransition(0))

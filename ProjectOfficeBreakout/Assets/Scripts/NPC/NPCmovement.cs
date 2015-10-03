@@ -37,6 +37,7 @@ public class NPCmovement : MonoBehaviour {
 				timer=5f;//reset timer
 				stop=false;//reset
 				attack=false;//reset
+				anim.SetBool("move",true);
 			}
 		}
 
@@ -124,7 +125,9 @@ public class NPCmovement : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.CompareTag ("ball")) {
+			Debug.Log("attackattackattack");
 			attack=true;
+			anim.SetBool("move",false);
 		}
 	}
 }

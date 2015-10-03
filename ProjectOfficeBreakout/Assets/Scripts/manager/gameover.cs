@@ -17,7 +17,6 @@ public class gameover : MonoBehaviour
 		if (NPC.gameOver)
 		{
 			anim.SetTrigger("gameOver");
-			print ("gameovergameovergameover");
 			restartTimer+=Time.deltaTime;
 			if(restartTimer>=restartDelay)
 				Application.LoadLevel(Application.loadedLevel);

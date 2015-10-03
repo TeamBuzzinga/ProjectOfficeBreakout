@@ -1,8 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameMechanics\CollisionDetector.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\Fluid-Dienamics\Fluid Dienamics\Assets\Scripts\UI\CardDrag.cs">
     <Files>
-      <File FileName="Assets\Scripts\GameMechanics\CollisionDetector.cs" Line="16" Column="1" />
+      <File FileName="..\..\Fluid-Dienamics\Fluid Dienamics\Assets\Scripts\UI\CardDrag.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

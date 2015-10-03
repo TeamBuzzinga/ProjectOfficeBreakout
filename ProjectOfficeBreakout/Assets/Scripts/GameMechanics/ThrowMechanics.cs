@@ -4,7 +4,7 @@ using System.Collections;
 public class ThrowMechanics : MonoBehaviour {
     public GameObject projectile;
     public Vector3 throwDirection;
-    public Vector3 throwPosition;
+    public Transform throwPosition;
     public float throwForce;
     public float throwTime;//The time that it takes to complete one throw
     public float coolDownTime;//The time before you can throw another ball
@@ -37,8 +37,11 @@ public class ThrowMechanics : MonoBehaviour {
 
     void createBall()
     {
-        GameObject obj = (GameObject)Instantiate(projectile, throwPosition, new Quaternion());
-        obj.GetComponent<Rigidbody>().AddForce(throwDirection.normalized * throwForce);
+        GameObject obj = (GameObject)Instantiate(projectile, throwPosition.position, new Quaternion());
+        Vector3 direction = new Vector3(transform.forward.x, 0, transform.forward.z).normalized;
+        direction += throwDirection;
+
+        obj.GetComponent<Rigidbody>().AddForce(direction * throwForce);
     }
 
     public void throwBall(bool throwButtonDown) 

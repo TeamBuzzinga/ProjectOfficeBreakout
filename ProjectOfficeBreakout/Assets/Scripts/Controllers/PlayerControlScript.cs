@@ -23,8 +23,8 @@ public class PlayerControlScript : MonoBehaviour
 	
 	private Animator anim;							// a reference to the animator on the character
 	private AnimatorStateInfo currentBaseState;			// a reference to the current state of the animator, used for base layer
-	private CapsuleCollider col;					// a reference to the capsule collider of the character
-	
+	private CapsuleCollider col;                    // a reference to the capsule collider of the character
+    private ThrowMechanics throwMechanics;
 	private Rigidbody rb;
 	
 	static int idleState = Animator.StringToHash("Base Layer.Idle");	
@@ -47,6 +47,7 @@ public class PlayerControlScript : MonoBehaviour
 		anim = GetComponent<Animator>();					  
 		col = GetComponent<CapsuleCollider>();
 		rb = GetComponent<Rigidbody>();
+        throwMechanics = GetComponent<ThrowMechanics>();
 	}
 	
 	
@@ -313,5 +314,8 @@ public class PlayerControlScript : MonoBehaviour
 		}
 	}
 	
-	
+	void Update()
+    {
+        throwMechanics.throwBall(Input.GetButtonDown("Fire1"));
+    }
 }

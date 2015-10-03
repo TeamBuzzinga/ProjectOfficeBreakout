@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Controllers\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Controllers\PlayerController2.cs" />
      <Compile Include="Assets\Scripts\GameMechanics\PlayerWalkMechanics.cs" />
+     <Compile Include="Assets\Scripts\GameMechanics\ThrowMechanics.cs" />
      <Compile Include="Assets\Scripts\GameMechanics\WalkMechanics.cs" />
      <Compile Include="Assets\Scripts\NPC\NPCmovement.cs" />
      <Compile Include="Assets\Scripts\NPC\cam.cs" />

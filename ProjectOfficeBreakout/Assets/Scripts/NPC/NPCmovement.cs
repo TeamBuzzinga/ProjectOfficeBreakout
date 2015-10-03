@@ -21,27 +21,29 @@ public class NPCmovement : MonoBehaviour {
 		nav = GetComponent <NavMeshAgent> ();
 		playerRigidbody = GetComponent<Rigidbody> ();
 		anim=GetComponent<Animator>();
-		anim.SetBool ("move", true);
+		anim.SetBool("move", true);
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		//when attacked, start the timer. 
 		if (attack) {
-			nav.Stop();
-			stop=true;
-			timer=timer-Time.deltaTime;
+			nav.Stop();//pause nav mesh agent
+			stop=true;//stop moving
+			timer=timer-Time.deltaTime;//decreasing timer
 			if(timer<0)
 			{
-				nav.Resume();
-				timer=5f;
-				stop=false;
-				attack=false;
+				nav.Resume();//resume nav mesh agent
+				timer=5f;//reset timer
+				stop=false;//reset
+				attack=false;//reset
 			}
 		}
 
 
 		if(!stop)
 			move();//auto-move
+		//array of rays to detect players in a certain range
 		Ray[] rays=new Ray[10];
 		for (int i=0; i<10; i++) {
 			rays[i].origin=rayorigin.position;
@@ -61,7 +63,7 @@ public class NPCmovement : MonoBehaviour {
 		}
 
 
-
+		//start nav
 		if (startNav && nav.enabled) {
 			print ("start naving");
 			nav.SetDestination(player.position);
@@ -77,6 +79,8 @@ public class NPCmovement : MonoBehaviour {
 
 	void turn()
 	{
+		//pick a random spot in the map for turning
+		print ("turning!");
 		Vector3 point= new Vector3(Random.Range(-22.0F, 22.0F), 0, Random.Range(-20.0F, 22.0F));
 		Vector3 playerToMouse=point-transform.position;
 		playerToMouse.y=0f;
@@ -86,12 +90,13 @@ public class NPCmovement : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision)
 	{
+		//check each collision contact point
 		foreach (ContactPoint contact in collision.contacts) 
 		{
 			Debug.DrawRay(contact.point, contact.normal, Color.red,10,false);
 			if(!contact.otherCollider.CompareTag("floor"))
 			{
-				if(contact.otherCollider.gameObject.CompareTag("player"))
+				if(contact.otherCollider.gameObject.CompareTag("player"))//lose condition, when colliding with player, game over
 				{
 					print("this is player, stop");
 					stop=true;
@@ -105,6 +110,7 @@ public class NPCmovement : MonoBehaviour {
 			}
 		}
 	}
+
 	void OnCollisionExit(Collision collision)
 	{
 		if (!collision.gameObject.CompareTag ("floor")) {
@@ -114,6 +120,7 @@ public class NPCmovement : MonoBehaviour {
 		}
 	}
 
+	//when attacked, set attack to be true;
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.CompareTag ("ball")) {

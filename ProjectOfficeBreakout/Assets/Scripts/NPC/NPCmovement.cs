@@ -12,6 +12,9 @@ public class NPCmovement : MonoBehaviour {
 	NavMeshAgent nav;
 	bool startNav=false;
 	bool stop=false;
+	bool attack=false;
+	float timer=5f;
+	public bool gameOver=false;
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("player").transform;
@@ -23,6 +26,20 @@ public class NPCmovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		if (attack) {
+			nav.Stop();
+			stop=true;
+			timer=timer-Time.deltaTime;
+			if(timer<0)
+			{
+				nav.Resume();
+				timer=5f;
+				stop=false;
+				attack=false;
+			}
+		}
+
+
 		if(!stop)
 			move();//auto-move
 		Ray[] rays=new Ray[10];
@@ -71,7 +88,6 @@ public class NPCmovement : MonoBehaviour {
 	{
 		foreach (ContactPoint contact in collision.contacts) 
 		{
-		
 			Debug.DrawRay(contact.point, contact.normal, Color.red,10,false);
 			if(!contact.otherCollider.CompareTag("floor"))
 			{
@@ -80,6 +96,7 @@ public class NPCmovement : MonoBehaviour {
 					print("this is player, stop");
 					stop=true;
 					anim.SetBool ("move", false);
+					gameOver=true;
 				}
 
 				float angle=Vector3.Angle(contact.normal,transform.forward);
@@ -97,4 +114,10 @@ public class NPCmovement : MonoBehaviour {
 		}
 	}
 
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.CompareTag ("ball")) {
+			attack=true;
+		}
+	}
 }

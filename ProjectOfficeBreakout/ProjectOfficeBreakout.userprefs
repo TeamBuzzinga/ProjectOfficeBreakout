@@ -1,8 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\Fluid-Dienamics\Fluid Dienamics\Assets\Scripts\UI\CardDrag.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\NPC\NPCmovement.cs">
     <Files>
-      <File FileName="..\..\Fluid-Dienamics\Fluid Dienamics\Assets\Scripts\UI\CardDrag.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\NPC\NPCmovement.cs" Line="99" Column="20" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

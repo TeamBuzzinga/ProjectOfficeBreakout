@@ -1,13 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Controllers\PlayerControlScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\manager\win.cs">
     <Files>
-      <File FileName="Assets\Scripts\Controllers\PlayerControlScript.cs" Line="88" Column="4" />
-      <File FileName="Assets\Scripts\NPC\NPCmovement.cs" Line="62" Column="42" />
-      <File FileName="Assets\Scripts\manager\gameover.cs" Line="14" Column="2" />
-      <File FileName="Assets\Scripts\Controllers\AnimTriggers.cs" Line="42" Column="41" />
-      <File FileName="Assets\Scripts\manager\win.cs" Line="15" Column="2" />
-      <File FileName="Assets\Scripts\GameMechanics\ThrowMechanics.cs" Line="47" Column="6" />
+      <File FileName="Assets\Scripts\manager\gameover.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\NPC\NPCmovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\manager\win.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

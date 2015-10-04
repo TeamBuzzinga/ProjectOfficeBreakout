@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>D:/Program/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>D:/Program/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -61,23 +61,23 @@
      <Compile Include="Assets\Scripts\NPC\cam.cs" />
      <Compile Include="Assets\Scripts\manager\gameover.cs" />
      <Compile Include="Assets\Scripts\manager\win.cs" />
-     <None Include="Assets\Character\TaichiCharacterPack\Shaders\toon_cutoff.shader" />
+     <None Include="Assets\character\TaichiCharacterPack\Shaders\toon_cutoff.shader" />
      <None Include="Assets\Chairs and sofas pack\Readme.txt" />
-     <None Include="Assets\Character\TaichiCharacterPack\Readme.txt" />
-     <None Include="Assets\Character\TaichiCharacterPack\Releasenote.txt" />
+     <None Include="Assets\character\TaichiCharacterPack\Readme.txt" />
+     <None Include="Assets\character\TaichiCharacterPack\Releasenote.txt" />
      <None Include="Assets\Environment\WoodenBoxOpen02_fbx\readme.txt" />
-     <None Include="Assets\Character\TaichiCharacterPack\Shaders\toon_hair.shader" />
+     <None Include="Assets\character\TaichiCharacterPack\Shaders\toon_hair.shader" />
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/Program/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>D:/Program/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
- <HintPath>D:/Program/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
- <HintPath>D:/Program/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

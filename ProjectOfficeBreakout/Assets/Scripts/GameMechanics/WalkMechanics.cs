@@ -22,34 +22,34 @@ public class WalkMechanics : MonoBehaviour {
 		this.verticalInput = verticalInput;
 	}
 
-	void Start() {
+	protected virtual void Start() {
 		rigid = GetComponent<Rigidbody> ();
 	}
 
 	protected virtual void Update() {
 		adjustInputDirection ();
-		updateRotation ();
+		//updateRotation (inputDirection);
 	}
 
 	protected virtual void adjustInputDirection() {
 		inputDirection = new Vector3 (horizontalInput, 0, verticalInput).normalized;
 	}
 
-	void FixedUpdate() {
-		updateVelocity ();
+	protected virtual void FixedUpdate() {
+		updateVelocity (inputDirection);
 	}
 
-	void updateVelocity() {
+	void updateVelocity(Vector3 direction) {
 		float scale = Mathf.Max (Mathf.Abs (horizontalInput), Mathf.Abs (verticalInput));
-		Vector3 goalVelocity = inputDirection * speed * scale + new Vector3(0, rigid.velocity.y, 0);
+		Vector3 goalVelocity = direction * speed * scale + new Vector3(0, rigid.velocity.y, 0);
 
 		rigid.velocity = Vector3.Lerp (rigid.velocity, goalVelocity, Time.deltaTime * velSmoothing);
 
 	}
 
-	protected virtual void updateRotation() {
-		if (Mathf.Abs(inputDirection.x) > .0001 || Mathf.Abs(inputDirection.z) > .001) {
-			float degrees = Mathf.Atan2 (inputDirection.x, inputDirection.z) * Mathf.Rad2Deg;
+	protected virtual void updateRotation(Vector3 direction) {
+		if (Mathf.Abs(direction.x) > .0001 || Mathf.Abs(direction.z) > .001) {
+			float degrees = Mathf.Atan2 (direction.x, direction.z) * Mathf.Rad2Deg;
 			float x = transform.eulerAngles.x;
 			float y = degrees;
 			float z = transform.eulerAngles.z;

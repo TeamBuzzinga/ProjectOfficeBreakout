@@ -25,7 +25,7 @@ public class CameraFollow : MonoBehaviour {
 
 	}
 
-	void Update() {
+	protected virtual void Update() {
         //print (distanceFromTarget);
 
         adjustRotation();
@@ -51,7 +51,7 @@ public class CameraFollow : MonoBehaviour {
 
     }
 
-	void adjustRotation () {
+	protected virtual void adjustRotation () {
 		transform.rotation = Quaternion.Slerp (transform.rotation, goalTransfom.rotation, Time.deltaTime * rotateSmoothing);
 		//transform.rotation = goalTransfom.rotation;
 	}

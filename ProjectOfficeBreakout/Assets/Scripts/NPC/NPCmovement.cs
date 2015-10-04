@@ -26,6 +26,14 @@ public class NPCmovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+
+		//stop the NPC when player wins
+		if(GameObject.Find("Player").GetComponent<Animator>().GetBool("Win"))
+		{
+			stop= true;
+		}
+
+
 		//when attacked, start the timer. 
 		if (attack) {
 			nav.Stop();//pause nav mesh agent
@@ -103,6 +111,7 @@ public class NPCmovement : MonoBehaviour {
 					stop=true;
 					anim.SetBool ("move", false);
 					gameOver=true;
+					GameObject.Find("Player").GetComponent<Animator>().SetBool("GameOver",true);
 				}
 
 				float angle=Vector3.Angle(contact.normal,transform.forward);

@@ -23,6 +23,7 @@ public class PlayerControlScript : MonoBehaviour
 	
 	private Animator anim;							// a reference to the animator on the character
 	private AnimatorStateInfo currentBaseState;			// a reference to the current state of the animator, used for base layer
+	private AnimatorStateInfo layer2CurrentState;			// a reference to the current state of the animator, used for base layer
 	private CapsuleCollider col;                    // a reference to the capsule collider of the character
     private ThrowMechanics throwMechanics;
 	private Rigidbody rb;
@@ -40,14 +41,20 @@ public class PlayerControlScript : MonoBehaviour
 	static int crouchForwardState = Animator.StringToHash("Base Layer.CrouchForward");
 
 	static int useState = Animator.StringToHash("Base Layer.Use");		// within our FixedUpdate() function below
-	
+	static int throwState = Animator.StringToHash("Layer 2.Throw");		// within our FixedUpdate() function below
+
 	GameObject obj;
+
+	public float timer = 0.5f;
+
+
 	void Start ()
 	{
 		anim = GetComponent<Animator>();					  
 		col = GetComponent<CapsuleCollider>();
 		rb = GetComponent<Rigidbody>();
         throwMechanics = GetComponent<ThrowMechanics>();
+		anim.SetLayerWeight(1, 1);
 	}
 	
 	
@@ -59,7 +66,8 @@ public class PlayerControlScript : MonoBehaviour
 		anim.SetFloat("Direction", h); 						// set our animator's float parameter 'Direction' equal to the horizontal input axis		
 		anim.speed = animSpeed;								// set the speed of our animator to the public variable 'animSpeed'
 		currentBaseState = anim.GetCurrentAnimatorStateInfo(0);	// set our currentState variable to the current state of the Base Layer (0) of animation
-		
+		layer2CurrentState = anim.GetCurrentAnimatorStateInfo(1);
+
 		Debug.DrawRay(transform.position + Vector3.up,-Vector3.up,Color.green);
 		// Use Raycast to prevent character floating bug
 		Ray ray = new Ray(transform.position + Vector3.up, -Vector3.up);
@@ -73,7 +81,11 @@ public class PlayerControlScript : MonoBehaviour
 			}
 		}
 		
-		
+		if (timer <=0)
+		{
+			anim.SetBool("Throw",false);
+			timer = 0.5f;
+		}
 		
 		if (currentBaseState.nameHash == locoState)
 		{
@@ -166,7 +178,7 @@ public class PlayerControlScript : MonoBehaviour
 					
 					//if jump is called when player is on the climb medium trigger,
 					//Check that player is facing object before climbing
-					obj = GameObject.FindGameObjectWithTag("UseTriggerObject");
+					obj = GameObject.FindGameObjectWithTag("UseObject");
 					angle = Vector3.Angle(transform.forward, obj.transform.position - transform.position) ;
 //					a2 = angle;
 					if (angle < 80)
@@ -211,7 +223,15 @@ public class PlayerControlScript : MonoBehaviour
 			}
 
 		}
-
+		else if(layer2CurrentState.nameHash == throwState)
+		{	
+			timer -=Time.deltaTime;
+			if(!anim.IsInTransition(0))
+			{
+				anim.SetBool("Throw", false);
+				timer = 0.5f;
+			}
+		}
 		else if(currentBaseState.nameHash == crouchState)
 		{
 			if(Input.GetKey(KeyCode.C))
@@ -226,6 +246,11 @@ public class PlayerControlScript : MonoBehaviour
 
 			transform.Rotate(0, LRValue*60*Time.deltaTime,0);
 
+			if(Input.GetKey(KeyCode.C))
+			{
+				anim.SetBool("Crouch",false);
+			}
+
 		}
 		else if (currentBaseState.nameHash == crouchForwardState)
 		{
@@ -233,6 +258,10 @@ public class PlayerControlScript : MonoBehaviour
 			float LRValue = Input.GetAxis("Horizontal");
 //			if (LRValue<-0.1)
 			transform.Rotate(0, LRValue*60*Time.deltaTime,0);
+			if(Input.GetKey(KeyCode.C))
+			{
+				anim.SetBool("Crouch",false);
+			}
 		}
 
 		else if(currentBaseState.nameHash == useState)

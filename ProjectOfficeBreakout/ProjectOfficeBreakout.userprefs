@@ -1,9 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\NPC\NPCmovement.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\manager\win.cs">
     <Files>
-      <File FileName="Assets\Scripts\NPC\NPCmovement.cs" Line="120" Column="4" />
-      <File FileName="Assets\Scripts\manager\gameover.cs" Line="20" Column="1" />
+      <File FileName="Assets\Scripts\manager\gameover.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\NPC\NPCmovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\manager\win.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

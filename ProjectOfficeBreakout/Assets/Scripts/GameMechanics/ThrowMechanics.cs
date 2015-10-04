@@ -12,9 +12,17 @@ public class ThrowMechanics : MonoBehaviour {
     float throwTimer;
     float coolDownTimer;
 
+	private Animator anim;
+
+	void Start()
+	{
+		anim = this.GetComponent<Animator>();
+	}
+
     void Update()
     {
         updateTimers();
+
     }
 
 
@@ -42,6 +50,7 @@ public class ThrowMechanics : MonoBehaviour {
         direction += throwDirection;
 
         obj.GetComponent<Rigidbody>().AddForce(direction * throwForce);
+		
     }
 
     public void throwBall(bool throwButtonDown) 
@@ -51,11 +60,14 @@ public class ThrowMechanics : MonoBehaviour {
             throwTimer = throwTime;
             coolDownTimer = coolDownTime;
             createBall();
-        }
+			anim.SetBool("Throw",true);
+
+		}
     }
 
     public bool getIsThrowing()
     {
+
         return throwTimer > 0;
     }
 

@@ -31,6 +31,8 @@ public class AnimTriggers : MonoBehaviour
 			animator.SetInteger("TriggerIndex",4);
 		else if (col.gameObject.name == "CannotClimbTrigger")
 			animator.SetInteger("TriggerIndex",5);
+		else if (col.gameObject.name == "WinTrigger")
+			animator.SetBool("Win",true);
 	}
 	
 	//Reset it to 0 when leaving the trigger

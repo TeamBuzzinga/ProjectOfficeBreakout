@@ -46,14 +46,17 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\AnimationsScripts\PlayerAnimations.cs" />
      <Compile Include="Assets\Scripts\CameraLogic\CameraController.cs" />
      <Compile Include="Assets\Scripts\CameraLogic\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\CameraLogic\FixedCamera.cs" />
      <Compile Include="Assets\Scripts\CameraLogic\TPCamera.cs" />
      <Compile Include="Assets\Scripts\Controllers\AnimTriggers.cs" />
      <Compile Include="Assets\Scripts\Controllers\PlayerControlScript.cs" />
      <Compile Include="Assets\Scripts\Controllers\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Controllers\PlayerController2.cs" />
      <Compile Include="Assets\Scripts\GameMechanics\BallMechanics.cs" />
+     <Compile Include="Assets\Scripts\GameMechanics\CrouchMechanics.cs" />
      <Compile Include="Assets\Scripts\GameMechanics\PlayerWalkMechanics.cs" />
      <Compile Include="Assets\Scripts\GameMechanics\ThrowMechanics.cs" />
      <Compile Include="Assets\Scripts\GameMechanics\WalkMechanics.cs" />

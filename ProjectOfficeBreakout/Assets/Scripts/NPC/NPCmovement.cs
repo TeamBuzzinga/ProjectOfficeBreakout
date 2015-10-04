@@ -28,9 +28,10 @@ public class NPCmovement : MonoBehaviour {
 	void FixedUpdate () {
 
 		//stop the NPC when player wins
-		if(GameObject.Find("Player").GetComponent<Animator>().GetBool("Win"))
+		if(GameObject.FindGameObjectWithTag("player").GetComponent<Animator>().GetBool("Win"))
 		{
 			stop= true;
+			nav.Stop();
 		}
 
 
@@ -57,7 +58,7 @@ public class NPCmovement : MonoBehaviour {
 		for (int i=0; i<10; i++) {
 			rays[i].origin=rayorigin.position;
 			rays[i].direction=Quaternion.AngleAxis(12*(i-5),transform.up)*transform.forward;
-			Debug.DrawRay (rays[i].origin, rays[i].direction,Color.red);
+			//Debug.DrawRay (rays[i].origin, rays[i].direction,Color.red);
 
 			RaycastHit hitInfo = new RaycastHit();
 			
@@ -102,7 +103,7 @@ public class NPCmovement : MonoBehaviour {
 		//check each collision contact point
 		foreach (ContactPoint contact in collision.contacts) 
 		{
-			Debug.DrawRay(contact.point, contact.normal, Color.red,10,false);
+			//Debug.DrawRay(contact.point, contact.normal, Color.red,10,false);
 			if(!contact.otherCollider.CompareTag("floor"))
 			{
 				if(contact.otherCollider.gameObject.CompareTag("player"))//lose condition, when colliding with player, game over
@@ -111,7 +112,7 @@ public class NPCmovement : MonoBehaviour {
 					stop=true;
 					anim.SetBool ("move", false);
 					gameOver=true;
-					GameObject.Find("Player").GetComponent<Animator>().SetBool("GameOver",true);
+					GameObject.FindGameObjectWithTag("player").GetComponent<Animator>().SetBool("GameOver",true);
 				}
 
 				float angle=Vector3.Angle(contact.normal,transform.forward);
@@ -134,7 +135,7 @@ public class NPCmovement : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.CompareTag ("ball")) {
-			Debug.Log("attackattackattack");
+			//Debug.Log("attackattackattack");
 			attack=true;
 			anim.SetBool("move",false);
 		}

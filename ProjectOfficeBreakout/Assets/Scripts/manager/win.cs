@@ -9,7 +9,7 @@ public class win : MonoBehaviour
 	
 	void Awake()
 	{
-		player = GameObject.Find("Player");
+		player = GameObject.FindGameObjectWithTag("player");
 		anim = GetComponent<Animator>();
 	}
 	
